@@ -12,7 +12,7 @@ echo OPENSHIFT_TMP_DIR: $OPENSHIFT_TMP_DIR
 cd $OPENSHIFT_GEAR_DIR/repo 
 export felixcmd="java -Dorg.ops4j.pax.web.listening.addresses=$OPENSHIFT_INTERNAL_IP -cp $(echo lib/*.jar | tr ' ' ':') com.dexels.navajo.runtime.openshift.OpenshiftFrameworkInstance"
 echo "Command Line: $felixcmd"
-java -Dorg.ops4j.pax.web.listening.addresses=$OPENSHIFT_INTERNAL_IP -cp $(echo lib/*.jar | tr ' ' ':') com.dexels.navajo.runtime.openshift.OpenshiftFrameworkInstance >${OPENSHIFT_LOG_DIR}/felix.log
+java -Dorg.ops4j.pax.web.listening.addresses=$OPENSHIFT_INTERNAL_IP -cp $(echo lib/*.jar | tr ' ' ':') com.dexels.navajo.runtime.openshift.OpenshiftFrameworkInstance >${OPENSHIFT_LOG_DIR}/felix.log i2>${OPENSHIFT_LOG_DIR}/stderr.log
 #
 #java -cp $(echo lib/*.jar | tr ' ' ':')
 #nohup $felixcmd &
