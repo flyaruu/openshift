@@ -10,6 +10,8 @@ echo OPENSHIFT_DATA_DIR: $OPENSHIFT_DATA_DIR
 echo OPENSHIFT_TMP_DIR: $OPENSHIFT_TMP_DIR
 
 cd $OPENSHIFT_GEAR_DIR/repo 
+echo "Flushing bundles in $OPENSHIFT_RUNTIME_DIR/bundle"
+rm -rf $OPENSHIFT_RUNTIME_DIR/bundle/*
 export felixcmd="java -Dorg.ops4j.pax.web.listening.addresses=$OPENSHIFT_INTERNAL_IP -cp $(echo lib/*.jar | tr ' ' ':') com.dexels.navajo.runtime.openshift.OpenshiftFrameworkInstance"
 echo "Command Line: $felixcmd"
 java -Dorg.ops4j.pax.web.listening.addresses=$OPENSHIFT_INTERNAL_IP -cp $(echo lib/*.jar | tr ' ' ':') com.dexels.navajo.runtime.openshift.OpenshiftFrameworkInstance >${OPENSHIFT_LOG_DIR}/felix.log i2>${OPENSHIFT_LOG_DIR}/stderr.log
